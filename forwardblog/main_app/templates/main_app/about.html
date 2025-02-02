@@ -1,6 +1,10 @@
 {% extends 'main_app/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %}
 {% block content %}
-<section>
+<section class="about-container">
   <h1>Forward Blog Creator</h1>
   <img src="https://i.postimg.cc/xdwksQSH/IMG-8128.jpg" alt="creator image">
   <h2> Welcome! I'm Manuel Orellana </h2>

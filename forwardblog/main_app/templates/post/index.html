@@ -1,0 +1,27 @@
+{% extends 'main_app/base.html' %}
+{% block content %}
+<section class="card-container">
+  {% if posts %}
+    {% for post in posts %}
+      <div class="card">
+        <a href="{% url 'post-detail' post.id %}">
+          <div class="card-content">
+            <div class="card-img-container">
+              <img
+                src=""
+                alt=""
+              />
+            </div>
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p><small>{{ post.description }}</small></p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+      {% else %}
+        <p>Posts comming soon....</p>
+      {% endif %}
+  </section>
+  
+  {% endblock %}
+

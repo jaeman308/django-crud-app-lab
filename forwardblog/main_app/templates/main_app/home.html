@@ -1,7 +1,20 @@
 {% extends 'main_app/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
 {% block content %}
-<img src="https://i.postimg.cc/8PtRSGnW/F-3.png" alt="cartoonblogger">
-<h1> FOWARD...</h1>
-<h3>Architecting Your Life's Potential, One Strategic Choice at a Time</h3>
-<button class="btn">Learn More</button>
+
+<section class="logo-container">   
+    <div class="forward-container">
+        <div>
+            <img src="https://i.postimg.cc/8PtRSGnW/F-3.png" alt="cartoonblogger">
+        </div>
+        <div class="content-container">
+            <h1> FOWARD...</h1>
+            <h3>Architecting Your Life's Potential, One Strategic Choice at a Time</h3>
+            <a href="{% url 'about' %}"class="btn">Learn More</a>
+        </div>
+    </div>
+</section>
 {% endblock %}

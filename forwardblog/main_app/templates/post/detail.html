@@ -1,0 +1,13 @@
+{% extends 'main_app/base.html' %} 
+{% block content %}
+<section class="post-container">
+    <div class="post-img">
+      <img src="" alt="" />
+    </div>
+    <div class="post-details">
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.description }}</p>
+    </div>
+  </section>
+  {% endblock %}
+  
