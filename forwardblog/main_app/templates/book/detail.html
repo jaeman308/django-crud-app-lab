@@ -1,0 +1,18 @@
+{% extends 'main_app/base.html' %} 
+{% block content %}
+<section class="bookreview-container">
+    <div class="bookreview-img">
+      <img src="" alt="" />
+    </div>
+    <div class="bookreview-details">
+      <h1>{{ book.title }}</h1>
+      <p>{{ book.description }}</p>
+       {% if book.date_published %}
+        <p>Published: {{ book.date_published|date:"F d, Y H:i" }}</p>
+      {% endif %}
+      <p>Last edited: {{ book.date_edited|date:"F d, Y H:i" }}</p>
+    
+    </div>
+  </section>
+  {% endblock %}
+  
