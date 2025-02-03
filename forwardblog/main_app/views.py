@@ -1,17 +1,38 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post, Book
+from .forms import PostForm, BookForm
 
 
 class PostCreate(CreateView):
     model = Post 
-    fields = '__all__'
+    form_class = PostForm
     success_url = '/posts/'
 
 class BookCreate(CreateView):
     model = Book
-    fields = '__all__'
+    form_class = BookForm
     success_url = '/books/'
+
+class PostUpdate(UpdateView):
+    model= Post
+    fields = ['title', 'description']
+    success_url = '/posts/'
+
+class PostDelete(DeleteView):
+    model = Post
+    success_url = '/posts/'
+
+class BookUpdate(UpdateView):
+    model = Book
+    fields = ['title', 'description']
+    success_url = '/books/'
+
+class BookDelete(DeleteView):
+    model = Book 
+    success_url = '/books/'
+
+
 
 def home(request):
     return render(request, 'main_app/home.html')

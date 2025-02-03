@@ -11,7 +11,10 @@
         <p>Published: {{ post.date_published|date:"F d, Y H:i" }}</p>
       {% endif %}
       <p>Last edited: {{ post.date_edited|date:"F d, Y H:i" }}</p>
-    
+      <div class="post-actions">
+        <a href="{% url 'post-update' cat.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'post-delete' cat.id %}" class="btn danger">Delete</a>
+      </div>
     </div>
   </section>
   {% endblock %}

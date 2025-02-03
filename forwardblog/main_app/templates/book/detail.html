@@ -11,7 +11,11 @@
         <p>Published: {{ book.date_published|date:"F d, Y H:i" }}</p>
       {% endif %}
       <p>Last edited: {{ book.date_edited|date:"F d, Y H:i" }}</p>
-    
+      
+      <div class="book-actions">
+        <a href="{% url 'book-update' book.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'book-delete' book.id %}" class="btn danger">Delete</a>
+      </div>
     </div>
   </section>
   {% endblock %}
