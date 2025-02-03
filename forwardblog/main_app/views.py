@@ -6,6 +6,8 @@ from .models import Post
 class PostCreate(CreateView):
     model = Post 
     fields = '__all__'
+    success_url = '/posts/'
+
 def home(request):
     return render(request, 'main_app/home.html')
 

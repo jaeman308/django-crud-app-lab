@@ -7,6 +7,11 @@
     <div class="post-details">
       <h1>{{ post.title }}</h1>
       <p>{{ post.description }}</p>
+       {% if post.date_published %}
+        <p>Published: {{ post.date_published|date:"F d, Y H:i" }}</p>
+      {% endif %}
+      <p>Last edited: {{ post.date_edited|date:"F d, Y H:i" }}</p>
+    
     </div>
   </section>
   {% endblock %}

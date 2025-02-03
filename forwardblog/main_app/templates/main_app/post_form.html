@@ -1,1 +1,21 @@
-{% extends 'main_app/base.html %}
+{% extends 'main_app/base.html' %} 
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<div class="page-header">
+    <h1>New Blog Post</h1>
+    <img src="https://i.postimg.cc/Vv9Vxfyr/F-4.png" alt="little blogger">
+</div>
+
+<form action="" method="post" class="form-container">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn publish">Publish</button>
+</form>
+
+{% endblock %}
