@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import DateTimeInput
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -8,6 +9,7 @@ class Post(models.Model):
     is_published = models.BooleanField(default=False)
     date_published = models.DateTimeField(null=True, blank=True)
     date_edited= models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -22,6 +24,7 @@ class Book(models.Model):
     is_published = models.BooleanField(default=False)
     date_published = models.DateTimeField(null=True, blank=True)
     date_edited= models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
