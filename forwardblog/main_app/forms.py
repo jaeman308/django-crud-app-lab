@@ -10,6 +10,10 @@ class PostForm(forms.ModelForm):
             'date_published': DateInput(attrs={'type': 'date'})
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['date_published'].input_formats = ['%Y-%m-%dT%H:%M']
+
 
 
 class BookForm(forms.ModelForm):  
@@ -19,3 +23,7 @@ class BookForm(forms.ModelForm):
         widgets = {
             'date_published': DateInput(attrs={'type': 'date'})
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['date_published'].input_formats = ['%Y-%m-%dT%H:%M']

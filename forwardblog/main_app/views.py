@@ -6,33 +6,42 @@ from main_app.models import Post, Book
 from .forms import PostForm, BookForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, CreateView):
     model = Post 
     form_class = PostForm
     success_url = '/posts/'
 
-class BookCreate(CreateView):
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class BookCreate(LoginRequiredMixin, CreateView):
     model = Book
     form_class = BookForm
     success_url = '/books/'
 
-class PostUpdate(UpdateView):
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class PostUpdate(LoginRequiredMixin, UpdateView):
     model= Post
     fields = ['title', 'description']
     success_url = '/posts/'
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = '/posts/'
 
-class BookUpdate(UpdateView):
+class BookUpdate(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title', 'description']
     success_url = '/books/'
 
-class BookDelete(DeleteView):
+class BookDelete(LoginRequiredMixin, DeleteView):
     model = Book 
     success_url = '/books/'
 
